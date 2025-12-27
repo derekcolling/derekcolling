@@ -114,6 +114,63 @@
             transform: rotate(0) scale(1);
         }
 
+        .theme-picker {
+            position: fixed;
+            top: 40px;
+            right: 100px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .theme-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: var(--transition);
+            background-color: var(--dot-color);
+        }
+
+        .theme-dot[data-theme="theme-light"] {
+            --dot-color: #F0F4F0;
+            border-color: #2C5530;
+        }
+
+        .theme-dot[data-theme="theme-hunter-green"] {
+            --dot-color: #1A2B1D;
+            border-color: #E8F0E8;
+        }
+
+        .theme-dot[data-theme="theme-dark-grey"] {
+            --dot-color: #1A1A1A;
+            border-color: #E5E5E5;
+        }
+
+        .theme-dot:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .theme-dot.active {
+            border-width: 3px;
+            box-shadow: 0 0 12px rgba(44, 85, 48, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .theme-picker {
+                top: 20px;
+                right: 70px;
+            }
+
+            .theme-dot {
+                width: 14px;
+                height: 14px;
+            }
+        }
+
         .container {
             max-width: 900px;
             padding: 160px 40px 80px;
@@ -343,6 +400,11 @@
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
     </button>
+    <div class="theme-picker">
+        <button class="theme-dot" data-theme="theme-light" aria-label="Light mode" title="Light"></button>
+        <button class="theme-dot" data-theme="theme-hunter-green" aria-label="Hunter green mode" title="Hunter Green"></button>
+        <button class="theme-dot" data-theme="theme-dark-grey" aria-label="Dark grey mode" title="Dark Grey"></button>
+    </div>
 
     <div class="glow"></div>
     <div class="glow-bottom"></div>
