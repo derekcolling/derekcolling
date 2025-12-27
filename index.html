@@ -12,12 +12,32 @@
         rel="stylesheet">
     <style>
         :root {
+            /* Light Mode (default) */
             --stone: #F0F4F0;
             --charcoal: #2C5530;
             --muted-gold: #D4A574;
             --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
+        body.theme-light {
+            --stone: #F0F4F0;
+            --charcoal: #2C5530;
+            --muted-gold: #D4A574;
+        }
+
+        body.theme-hunter-green {
+            --stone: #1A2B1D;
+            --charcoal: #E8F0E8;
+            --muted-gold: #E8C48A;
+        }
+
+        body.theme-dark-grey {
+            --stone: #1A1A1A;
+            --charcoal: #E5E5E5;
+            --muted-gold: #A8A8A8;
+        }
+
+        /* Backward compatibility for dark mode toggle */
         body.dark {
             --stone: #1A2B1D;
             --charcoal: #E8F0E8;
