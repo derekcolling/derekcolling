@@ -10,6 +10,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css"/>
     <style>
         :root {
             /* Light Mode (default) */
@@ -336,6 +339,201 @@
             left: -10vw;
             z-index: -1;
         }
+
+        /* How It Works Section */
+        .how-it-works {
+            margin-top: 80px;
+            padding-top: 60px;
+            border-top: 1px solid rgba(44, 85, 48, 0.1);
+        }
+
+        body.dark .how-it-works {
+            border-top-color: rgba(232, 240, 232, 0.1);
+        }
+
+        .section-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            color: var(--muted-gold);
+            margin-bottom: 24px;
+            display: block;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 48px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .step-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(44, 85, 48, 0.08);
+            border-radius: 12px;
+            color: var(--muted-gold);
+            font-size: 24px;
+        }
+
+        body.dark .step-icon {
+            background: rgba(232, 240, 232, 0.08);
+        }
+
+        .step h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .step p {
+            font-size: 1rem;
+            margin: 0;
+            opacity: 0.75;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            margin-top: 80px;
+            padding-top: 60px;
+            border-top: 1px solid rgba(44, 85, 48, 0.1);
+        }
+
+        body.dark .benefits {
+            border-top-color: rgba(232, 240, 232, 0.1);
+        }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        @media (max-width: 768px) {
+            .benefit-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
+        .benefit {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .benefit-icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted-gold);
+            font-size: 20px;
+        }
+
+        .benefit-content h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+        }
+
+        .benefit-content p {
+            font-size: 0.95rem;
+            margin: 0;
+            opacity: 0.75;
+            line-height: 1.5;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            margin-top: 60px;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .primary-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--muted-gold);
+            color: var(--stone);
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .primary-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(212, 165, 116, 0.3);
+        }
+
+        .primary-cta i {
+            font-size: 18px;
+        }
+
+        .secondary-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--charcoal);
+            padding: 14px 28px;
+            border-radius: 8px;
+            border: 1px solid rgba(44, 85, 48, 0.2);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        body.dark .secondary-cta {
+            border-color: rgba(232, 240, 232, 0.2);
+        }
+
+        .secondary-cta:hover {
+            background: rgba(44, 85, 48, 0.05);
+            transform: translateY(-2px);
+        }
+
+        body.dark .secondary-cta:hover {
+            background: rgba(232, 240, 232, 0.05);
+        }
+
+        .secondary-cta i {
+            font-size: 18px;
+        }
     </style>
     <script>
         // Theme management with multi-theme support
@@ -456,7 +654,7 @@
 
         <div class="manifesto-body">
             <p>
-                The difference sounds subtle, but it isn’t. Real skills transfer the taste, judgment, and intuition of a
+                The difference sounds subtle, but it isn't. Real skills transfer the taste, judgment, and intuition of a
                 domain expert into the system.
             </p>
             <p>
@@ -464,10 +662,91 @@
                 insight. Performance doesn't just increase—it scales.
             </p>
         </div>
+
+        <!-- How It Works -->
+        <section class="how-it-works">
+            <span class="section-label">How It Works</span>
+            <h2>Three steps to expert-level output</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="ph-bold ph-book-open-text"></i>
+                    </div>
+                    <h3>Define the Expertise</h3>
+                    <p>Capture the decision-making patterns, quality standards, and domain knowledge that make an expert effective.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="ph-bold ph-package"></i>
+                    </div>
+                    <h3>Package as a Skill</h3>
+                    <p>Structure that expertise into a reusable skill that Claude loads on demand—no retraining required.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="ph-bold ph-rocket-launch"></i>
+                    </div>
+                    <h3>Deploy at Scale</h3>
+                    <p>Run the skill across your team. Everyone gets the same expert-level judgment, instantly.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits">
+            <span class="section-label">Why Skills Beat Prompts</span>
+            <h2>Stop repeating yourself. Start scaling expertise.</h2>
+            <div class="benefit-grid">
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="ph ph-brain"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Judgment, Not Just Instructions</h4>
+                        <p>Prompts tell Claude what to do. Skills teach Claude when to apply which approach—and why.</p>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="ph ph-arrows-clockwise"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Write Once, Use Forever</h4>
+                        <p>No more copying prompts between projects. Skills load automatically when relevant.</p>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="ph ph-users-three"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Team-Wide Consistency</h4>
+                        <p>Your senior person's quality standards, available to everyone on the team.</p>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="ph ph-chart-line-up"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Compound Over Time</h4>
+                        <p>Each skill you build makes the next project faster. Your library becomes your competitive edge.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <a href="https://github.com/derekcolling/agency-as-brain" class="primary-cta">
+                    <i class="ph-bold ph-github-logo"></i>
+                    Explore the Skills Library
+                </a>
+                <a href="#how-it-works" class="secondary-cta">
+                    <i class="ph ph-book-open"></i>
+                    Read the Docs
+                </a>
+            </div>
+        </section>
     </div>
-</body>
-
-
 </body>
 
 </html>
