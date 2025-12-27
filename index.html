@@ -338,24 +338,65 @@
         }
     </style>
     <script>
-        // Check for saved theme preference or system preference
-        const getPreferredTheme = () => {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme) return savedTheme;
-            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        // Theme management with multi-theme support
+        const THEMES = {
+            'theme-light': 'Light Mode',
+            'theme-hunter-green': 'Hunter Green',
+            'theme-dark-grey': 'Dark Grey'
         };
 
-        const setTheme = (theme) => {
-            document.body.classList.toggle('dark', theme === 'dark');
-            localStorage.setItem('theme', theme);
+        const DEFAULT_THEME = 'theme-hunter-green'; // Default to hunter green (dark)
+
+        const getPreferredTheme = () => {
+            const savedTheme = localStorage.getItem('selectedTheme');
+            if (savedTheme && THEMES[savedTheme]) return savedTheme;
+
+            // Fallback to system preference
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            return prefersDark ? DEFAULT_THEME : 'theme-light';
+        };
+
+        const setTheme = (themeName) => {
+            // Remove all theme classes
+            Object.keys(THEMES).forEach(theme => {
+                document.body.classList.remove(theme);
+            });
+
+            // Add the selected theme
+            document.body.classList.add(themeName);
+
+            // Update localStorage
+            localStorage.setItem('selectedTheme', themeName);
+
+            // Update active indicator on dots
+            document.querySelectorAll('.theme-dot').forEach(dot => {
+                dot.classList.toggle('active', dot.dataset.theme === themeName);
+            });
+
+            // Maintain backward compatibility with 'dark' class for existing CSS
+            document.body.classList.toggle('dark', themeName !== 'theme-light');
         };
 
         document.addEventListener('DOMContentLoaded', () => {
-            setTheme(getPreferredTheme());
+            const preferredTheme = getPreferredTheme();
+            setTheme(preferredTheme);
 
-            document.getElementById('theme-toggle').addEventListener('click', () => {
-                const isDark = document.body.classList.contains('dark');
-                setTheme(isDark ? 'light' : 'dark');
+            // Theme toggle button (sun/moon)
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', () => {
+                    const currentTheme = localStorage.getItem('selectedTheme') || DEFAULT_THEME;
+                    const nextTheme = currentTheme === 'theme-light' ? 'theme-hunter-green' : 'theme-light';
+                    setTheme(nextTheme);
+                });
+            }
+
+            // Color picker dots
+            document.querySelectorAll('.theme-dot').forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const themeName = dot.dataset.theme;
+                    setTheme(themeName);
+                });
             });
 
             // Status Fetch
