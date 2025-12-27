@@ -96,11 +96,22 @@
 
         .container {
             max-width: 900px;
-            padding: 80px 40px;
+            padding: 120px 40px 80px;
             text-align: left;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeIn 1s forwards ease-out;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 100px 24px 60px;
+            }
+
+            .theme-toggle {
+                top: 24px;
+                right: 24px;
+            }
         }
 
         @keyframes fadeIn {
@@ -154,17 +165,14 @@
         }
 
         .status-container {
-            position: fixed;
-            top: 40px;
-            left: 40px;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 12px;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(26, 26, 26, 0.1);
             padding: 8px 16px;
             border-radius: 100px;
-            z-index: 100;
+            margin-bottom: 32px;
             transition: var(--transition);
         }
 
