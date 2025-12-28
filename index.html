@@ -340,6 +340,60 @@
             z-index: -1;
         }
 
+        /* Hero with Portrait */
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-portrait {
+            flex-shrink: 0;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: var(--stone);
+            border: 2px solid rgba(44, 85, 48, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        body.dark .hero-portrait {
+            border-color: rgba(232, 240, 232, 0.15);
+            background: rgba(232, 240, 232, 0.05);
+        }
+
+        .hero-portrait img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+            filter: var(--portrait-filter, none);
+        }
+
+        body.dark .hero-portrait img {
+            filter: invert(1) brightness(0.85);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .hero-portrait {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
         /* How It Works Section */
         .how-it-works {
             margin-top: 80px;
@@ -649,18 +703,25 @@
     <div class="glow-bottom"></div>
 
     <div class="container">
-        <span class="label">The 80/20 Agency OS</span>
-        <h1>Prompting is telling Claude <i>what to do.</i> Skills teach Claude <i class="accent">how to think.</i></h1>
+        <div class="hero">
+            <div class="hero-content">
+                <span class="label">The 80/20 Agency OS</span>
+                <h1>Prompting is telling Claude <i>what to do.</i> Skills teach Claude <i class="accent">how to think.</i></h1>
 
-        <div class="manifesto-body">
-            <p>
-                The difference sounds subtle, but it isn't. Real skills transfer the taste, judgment, and intuition of a
-                domain expert into the system.
-            </p>
-            <p>
-                Package that expertise once, and suddenly anyone running the skill has access to those years of clinical
-                insight. Performance doesn't just increase—it scales.
-            </p>
+                <div class="manifesto-body">
+                    <p>
+                        The difference sounds subtle, but it isn't. Real skills transfer the taste, judgment, and intuition of a
+                        domain expert into the system.
+                    </p>
+                    <p>
+                        Package that expertise once, and suddenly anyone running the skill has access to those years of clinical
+                        insight. Performance doesn't just increase—it scales.
+                    </p>
+                </div>
+            </div>
+            <div class="hero-portrait">
+                <img src="portrait.png" alt="Portrait illustration">
+            </div>
         </div>
 
         <!-- How It Works -->
