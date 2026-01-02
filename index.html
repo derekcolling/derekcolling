@@ -1,37 +1,32 @@
----
-layout: home
-title: Home
----
-
-<div class="hero fade-in">
-  <h1>Derek Colling</h1>
-  <p class="tagline">VP of Creative. Building with AI.</p>
-  <div class="intro">
-    <p>I lead creative strategy at an animal health marketing agency and build systems that blend human creativity with AI capability.</p>
-    <p>This site is a living space for insights, experiments, and lessons learned.</p>
-  </div>
-</div>
-
-{% if site.posts.size > 0 %}
-<div class="blog-grid">
-  {% for post in site.posts limit:3 %}
-  <article class="post-card">
-    <h3 class="post-title">
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    </h3>
-    <div class="post-meta">
-      <time datetime="{{ post.date | date_to_xmlschema }}">
-        {{ post.date | date: "%B %d, %Y" }}
-      </time>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #f5f5f5;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Coming Soon</h1>
     </div>
-    {% if post.excerpt %}
-    <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
-    {% endif %}
-  </article>
-  {% endfor %}
-</div>
-
-<div style="text-align: center; margin-top: 2rem;">
-  <a href="{{ '/blog' | relative_url }}" style="font-size: 1.2rem;">View all posts →</a>
-</div>
-{% endif %}
+</body>
+</html>
